@@ -12,8 +12,8 @@ Build dependencies: Open the project from root folder and run: `npm install`
 **Test Execution**
 
 UI: Open the project from root folder and run: 
-- Environment1: `npm run test-xyz-bank-environment1:chrome`
-- Environment1: `npm run test-xyz-bank-environment2:chrome`
+- Environment 1: `npm run test-xyz-bank-environment1:chrome`
+- Environment 2: `npm run test-xyz-bank-environment2:chrome`
 
 **Report**
 
