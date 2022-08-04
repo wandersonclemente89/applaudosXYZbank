@@ -1,0 +1,35 @@
+{
+  "defaultCommandTimeout": 30000,
+  "chromeWebSecurity": false,
+  "video": false,
+  "pageLoadTimeout": 50000,
+  "reporterOptions": {
+    "reportDir": "cypress/reports",
+    "charts": true,
+    "reportPageTitle": "XYZ Bank Automation",
+    "embeddedScreenshots": true,
+    "inlineAssets": true,
+    "saveAllAttempts": false
+  },
+  "env": {
+    "TAGS": "not @ignore"
+  },
+  "testFiles": "**/*.feature",
+  "retries": 1,
+  "viewportWidth": 1920,
+  "viewportHeight": 1200,
+  "blockHosts": [
+    "*.my-advertiser.com",
+    "*.zdassets.com",
+    "*.fonts.googleapis.com",
+    "*.google-analytics.com",
+    "*hsappstatic.net",
+    "*hubspot.com",
+    "*hs-banner.com",
+    "*usemessages.com",
+    "*newrelic.com",
+    "*nr-data.net",
+    "*datadoghq.com",
+    "*.google-analytics.com"
+  ]
+}

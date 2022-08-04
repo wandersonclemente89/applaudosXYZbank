@@ -1,0 +1,58 @@
+{
+  "name": "xyz-bank-automation",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "clean:reports": "run-script-os",
+    "clean:reports:windows": "if exist cypress\\reports rmdir /S /Q cypress\\reports",
+    "clean:reports:nix": "rm -rf  cypress/reports/ || true && mkdir -p cypress/reports/MultipleReport",
+    "pretest": "npm run clean:reports",
+    "scripts": "cypress run",
+    "test": "npm run pretest && npm run cypress:run -- --browser chrome --headed || npm run postcypress:run",
+    "cypress:run": "cypress run",
+    "postcypress:run": "node ./cypress/support/multiple-cucumber-html-reporter.js",
+    "test-xyz-bank-environment1:chrome:windows": "set NODE_ENV=environment1 & set BROWSER=chrome & npm test",
+    "test-xyz-bank-environment1:chrome:nix": "NODE_ENV=environment1,BROWSER=chrome npm test",
+    "test-xyz-bank-environment2:chrome:windows": "set NODE_ENV=environment2 & set BROWSER=chrome & npm test",
+    "test-xyz-bank-environment2:chrome:nix": "NODE_ENV=environment2,BROWSER=chrome npm test",
+    "test-xyz-bank-environment1:chrome": "run-script-os",
+    "test-xyz-bank-environment2:chrome": "run-script-os"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@cucumber/cucumber": "^8.2.1",
+    "@faker-js/faker": "^6.0.0",
+    "cucumber-html-reporter": "^5.5.0",
+    "cy-verify-downloads": "^0.1.7",
+    "cypress": "^9.7.0",
+    "cypress-cucumber-attach-screenshots-to-failed-steps": "^1.0.0",
+    "cypress-cucumber-preprocessor": "^4.3.1",
+    "cypress-file-upload": "^5.0.8",
+    "cypress-tags": "^0.3.0",
+    "cypress-terminal-report": "^3.5.1",
+    "faker": "^6.6.6",
+    "fs-extra": "^10.0.0",
+    "mocha": "^9.1.3",
+    "mochawesome": "^7.0.1",
+    "mochawesome-merge": "^4.2.1",
+    "mochawesome-report-generator": "^6.0.1",
+    "path": "^0.12.7",
+    "run-script-os": "^1.1.6"
+  },
+  "cypress-cucumber-preprocessor": {
+    "nonGlobalStepDefinitions": true,
+    "stepDefinitions": "cypress/integration/",
+    "cucumberJson": {
+      "generate": true,
+      "outputFolder": "cypress/cucumber-json",
+      "filePrefix": "",
+      "fileSuffix": ".json"
+    }
+  },
+  "dependencies": {
+    "multiple-cucumber-html-reporter": "^1.20.0"
+  }
+}
